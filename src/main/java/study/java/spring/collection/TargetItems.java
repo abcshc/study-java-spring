@@ -39,4 +39,15 @@ public class TargetItems {
                         item2.getPriority() - item1.getPriority()
                 ).collect(Collectors.toList());
     }
+
+    public List<TargetItem> sortedUsingComparator() {
+        return list.stream()
+                .sorted(new Comparator<TargetItem>() {
+                            @Override
+                            public int compare(TargetItem o1, TargetItem o2) {
+                                return o2.getPriority() - o1.getPriority();
+                            }
+                        }
+                ).collect(Collectors.toList());
+    }
 }
